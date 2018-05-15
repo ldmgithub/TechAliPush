@@ -57,8 +57,12 @@ public class MyMessageReceiver extends MessageReceiver {
 
 4.在清单文件里注册MyMessageReceiver 
  <!-- 消息接收监听器 （用户可自主扩展） -->
+ 
+    <meta-data android:name="com.alibaba.app.appkey" android:value="appKey"/> <!-- 请填写你自己的- appKey -->
+        <meta-data android:name="com.alibaba.app.appsecret" android:value="appSecret"/> <!-- 请填写你自己的appSecret -->
+
         <receiver
-            android:name="com.alipush.cw.alipushbyhand.MyMessageReceiver"
+            android:name="xxx.MyMessageReceiver"//包名+接受者的类名
             android:exported="false" > <!-- 为保证receiver安全，建议设置不可导出，如需对其他应用开放可通过android：permission进行限制 -->
             <intent-filter>
                 <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
