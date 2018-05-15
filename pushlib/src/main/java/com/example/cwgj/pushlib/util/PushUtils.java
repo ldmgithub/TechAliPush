@@ -1,11 +1,15 @@
 package com.example.cwgj.pushlib.util;
 
+import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
 import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.CommonCallback;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
+import com.alibaba.sdk.android.push.register.GcmRegister;
+import com.alibaba.sdk.android.push.register.HuaWeiRegister;
+import com.alibaba.sdk.android.push.register.MiPushRegister;
 import com.example.cwgj.pushlib.receiver.MyMessageIntentService;
 
 import rxbus.ecaray.com.rxbuslib.rxbus.RxBus;
@@ -60,4 +64,16 @@ public class PushUtils {
         // 注册方法会自动判断是否支持华为系统推送，如不支持会跳过注册。
 //        HuaWeiRegister.register(applicationContext);
     }
+
+    //必须在推送初始化之后 小米，华为推送
+    public static  void initThirdCloudChannel(Application application,String XIAOMI_ID,String XIAOMI_KEY){
+        MiPushRegister.register(application, XIAOMI_ID, XIAOMI_KEY);
+        // 注册方法会自动判断是否支持华为系统推送，如不支持会跳过注册。
+        HuaWeiRegister.register(application);
+    };
+
+    //必须在推送初始化之后，gcm服务
+    public static  void initGcmCloudChannel(Application application,String sendId,String applicationId){
+        GcmRegister.register(application, sendId, applicationId); //sendId/applicationId为步骤获得的参数
+    };
 }
