@@ -9,13 +9,16 @@
       repositories {
         ...
         maven { url 'https://jitpack.io' }
+        
          google()
+         
         jcenter()
+        
         mavenCentral()
+        
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
-
       }
     }
     
