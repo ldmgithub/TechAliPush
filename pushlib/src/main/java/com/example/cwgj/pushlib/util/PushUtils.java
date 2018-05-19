@@ -39,6 +39,7 @@ public class PushUtils {
 
     /**
      * 初始化云推送通道
+     *
      * @param applicationContext
      */
     public static void initCloudChannel(RxBus rxBus, Context applicationContext, String appKey, String appSecret) {
@@ -48,11 +49,12 @@ public class PushUtils {
         //设置接受通知通道为： AliyunMessageIntentService(官方建议)
         pushService.setPushIntentService(MyMessageIntentService.class);
         //注册channel
-        pushService.register(applicationContext,appKey, appSecret, new CommonCallback() {
+        pushService.register(applicationContext, appKey, appSecret, new CommonCallback() {
             @Override
             public void onSuccess(String response) {
                 Log.d(TAG, "init cloudchannel success");
             }
+
             @Override
             public void onFailed(String errorCode, String errorMessage) {
                 Log.d(TAG, "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
@@ -67,19 +69,31 @@ public class PushUtils {
 
     /**
      * 初始化云推送通道
+     * @param applicationContext ,isInitThirdChannel 是否集成辅助通道
+     */
+    public static void initCloudChannel(Context applicationContext,boolean isInitThirdChannel) {
+        initCloudChannel(applicationContext, isInitThirdChannel, null, null);
+    }
+
+    /**
+     * 初始化云推送通道
      * @param applicationContext
      */
-    public static void initCloudChannel( Context applicationContext) {
+    public static void initCloudChannel(final Context applicationContext, final boolean isInitThirdChannel, final String xiamoId, final String xiaomiKey) {
         PushServiceFactory.init(applicationContext);
         CloudPushService pushService = PushServiceFactory.getCloudPushService();
         //设置接受通知通道为： AliyunMessageIntentService(官方建议)
         pushService.setPushIntentService(MyMessageIntentService.class);
         //注册channel
-        pushService.register(applicationContext , new CommonCallback() {
+        pushService.register(applicationContext, new CommonCallback() {
             @Override
             public void onSuccess(String response) {
                 Log.d(TAG, "init cloudchannel success");
+                if (isInitThirdChannel) {
+                    initThirdCloudChannel(applicationContext, xiamoId, xiaomiKey);
+                }
             }
+
             @Override
             public void onFailed(String errorCode, String errorMessage) {
                 Log.d(TAG, "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
@@ -89,14 +103,18 @@ public class PushUtils {
 
 
     //必须在推送初始化之后 小米，华为推送
-    public static  void initThirdCloudChannel(Application application,String XIAOMI_ID,String XIAOMI_KEY){
+    public static void initThirdCloudChannel(Context application, String XIAOMI_ID, String XIAOMI_KEY) {
         MiPushRegister.register(application, XIAOMI_ID, XIAOMI_KEY);
         // 注册方法会自动判断是否支持华为系统推送，如不支持会跳过注册。
         HuaWeiRegister.register(application);
-    };
+    }
+
+    ;
 
     //必须在推送初始化之后，gcm服务
-    public static  void initGcmCloudChannel(Application application,String sendId,String applicationId){
+    public static void initGcmCloudChannel(Application application, String sendId, String applicationId) {
         GcmRegister.register(application, sendId, applicationId); //sendId/applicationId为步骤获得的参数
-    };
+    }
+
+    ;
 }
