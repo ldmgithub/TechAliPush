@@ -65,6 +65,29 @@ public class PushUtils {
 //        HuaWeiRegister.register(applicationContext);
     }
 
+    /**
+     * 初始化云推送通道
+     * @param applicationContext
+     */
+    public static void initCloudChannel( Context applicationContext) {
+        PushServiceFactory.init(applicationContext);
+        CloudPushService pushService = PushServiceFactory.getCloudPushService();
+        //设置接受通知通道为： AliyunMessageIntentService(官方建议)
+        pushService.setPushIntentService(MyMessageIntentService.class);
+        //注册channel
+        pushService.register(applicationContext , new CommonCallback() {
+            @Override
+            public void onSuccess(String response) {
+                Log.d(TAG, "init cloudchannel success");
+            }
+            @Override
+            public void onFailed(String errorCode, String errorMessage) {
+                Log.d(TAG, "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
+            }
+        });
+    }
+
+
     //必须在推送初始化之后 小米，华为推送
     public static  void initThirdCloudChannel(Application application,String XIAOMI_ID,String XIAOMI_KEY){
         MiPushRegister.register(application, XIAOMI_ID, XIAOMI_KEY);
