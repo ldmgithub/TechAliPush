@@ -23,6 +23,7 @@ public class MainAppliaction extends Application {
     public void onCreate() {
         super.onCreate();
         PushUtils.initCloudChannel(RxBus.getDefault(), this, "24829542", "1e8b48512cc143eca816f43eccb71715");
+        PushUtils.initGcmCloudChannel(  this, "24829542", "1e8b48512cc143eca816f43eccb71715");
     }
 
 

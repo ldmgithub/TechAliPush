@@ -35,7 +35,7 @@ public class PushUtils {
     //通知移除
     public static final String TAG_NOTIFICATION_REMOVED = "notification_removed";
     //rxbus 事件bus
-    public static RxBus sRxBus;
+//    public static RxBus sRxBus;
 
     /**
      * 初始化云推送通道
@@ -43,7 +43,7 @@ public class PushUtils {
      * @param applicationContext
      */
     public static void initCloudChannel(RxBus rxBus, Context applicationContext, String appKey, String appSecret) {
-        sRxBus = rxBus;
+//        sRxBus = rxBus;
         PushServiceFactory.init(applicationContext);
         CloudPushService pushService = PushServiceFactory.getCloudPushService();
         //设置接受通知通道为： AliyunMessageIntentService(官方建议)
@@ -69,14 +69,16 @@ public class PushUtils {
 
     /**
      * 初始化云推送通道
+     *
      * @param applicationContext ,isInitThirdChannel 是否集成辅助通道
      */
-    public static void initCloudChannel(Context applicationContext,boolean isInitThirdChannel) {
+    public static void initCloudChannel(Context applicationContext, boolean isInitThirdChannel) {
         initCloudChannel(applicationContext, isInitThirdChannel, null, null);
     }
 
     /**
      * 初始化云推送通道
+     *
      * @param applicationContext
      */
     public static void initCloudChannel(final Context applicationContext, final boolean isInitThirdChannel, final String xiamoId, final String xiaomiKey) {
@@ -116,5 +118,4 @@ public class PushUtils {
         GcmRegister.register(application, sendId, applicationId); //sendId/applicationId为步骤获得的参数
     }
 
-    ;
 }

@@ -10,6 +10,8 @@ import com.example.cwgj.pushlib.util.PushUtils;
 
 import java.util.Map;
 
+import rxbus.ecaray.com.rxbuslib.rxbus.RxBus;
+
 /**
  * Created by liyazhou on 17/8/22.
  * 为避免推送广播被系统拦截的小概率事件,我们推荐用户通过IntentService处理消息互调,接入步骤:
@@ -43,7 +45,7 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
     protected void onNotification(Context context, String title, String summary, Map<String, String> extraMap) {
         String msg = "收到一条推送通知 ： " + title + ", summary:" + summary;
         Log.i(REC_TAG,msg);
-        PushUtils.sRxBus.post(new NotificationBean(title, summary, extraMap, ""), PushUtils.TAG_NOTIFICATION_REC);
+      RxBus.getDefault().post(new NotificationBean(title, summary, extraMap, ""), PushUtils.TAG_NOTIFICATION_REC);
     }
 
 
@@ -57,7 +59,7 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
     @Override
     protected void onNotificationOpened(Context context, String title, String summary, String extraMap) {
         Log.i(REC_TAG,"onNotificationOpened ： " + " : " + title + " : " + summary + " : " + extraMap);
-        PushUtils.sRxBus.post(new NotificationBean(title, summary, null, extraMap), PushUtils.TAG_NOTIFICATION_OPENED);
+        RxBus.getDefault().post(new NotificationBean(title, summary, null, extraMap), PushUtils.TAG_NOTIFICATION_OPENED);
     }
 
     /**
@@ -80,7 +82,7 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
     @Override
     protected void onNotificationRemoved(Context context, String messageId) {
         Log.i(REC_TAG, "onNotificationRemoved ： " + messageId);
-        PushUtils.sRxBus.post(messageId, PushUtils.TAG_NOTIFICATION_REMOVED);
+        RxBus.getDefault().post(messageId, PushUtils.TAG_NOTIFICATION_REMOVED);
     }
 
     /**
