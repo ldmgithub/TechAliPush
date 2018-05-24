@@ -31,4 +31,19 @@ public class NotificationBean {
         this.extraStr = extraStr;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public Map<String, String> getExtraMap() {
+        return extraMap;
+    }
+
+    public String getExtraStr() {
+        return extraStr;
+    }
 }
