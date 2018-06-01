@@ -32,6 +32,7 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
     @Override
     protected void onMessage(Context context, CPushMessage cPushMessage) {
         Log.i(REC_TAG,"收到一条推送消息 ： " + cPushMessage.getTitle() + ", content:" + cPushMessage.getContent());
+        RxBus.getDefault().post(cPushMessage, PushUtils.TAG_MESSAGE_REC);
     }
 
     /**

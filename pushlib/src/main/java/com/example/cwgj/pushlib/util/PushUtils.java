@@ -34,6 +34,8 @@ public class PushUtils {
     public static final String TAG_NOTIFICATION_OPENED = "notification_opened";
     //通知移除
     public static final String TAG_NOTIFICATION_REMOVED = "notification_removed";
+    //接收消息
+    public static final String TAG_MESSAGE_REC = "tag_message_rec";
     //rxbus 事件bus
 //    public static RxBus sRxBus;
 
