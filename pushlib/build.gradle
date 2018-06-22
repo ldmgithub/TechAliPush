@@ -34,6 +34,6 @@ dependencies {
     //第三方小米 华为推送
     provided 'com.aliyun.ams:alicloud-android-third-push:3.0.3@aar'
 
-    provided 'com.github.TopTech666:TechRxbus:1.2.2'
+    compile 'com.github.TopTech666:TechRxbus:1.2.2'
 
 }
