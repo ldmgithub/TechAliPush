@@ -47,14 +47,15 @@ public class PushUtils {
     public static void initCloudChannel(RxBus rxBus, Context applicationContext, String appKey, String appSecret) {
 //        sRxBus = rxBus;
         PushServiceFactory.init(applicationContext);
-        CloudPushService pushService = PushServiceFactory.getCloudPushService();
+        final CloudPushService pushService = PushServiceFactory.getCloudPushService();
         //设置接受通知通道为： AliyunMessageIntentService(官方建议)
         pushService.setPushIntentService(MyMessageIntentService.class);
         //注册channel
         pushService.register(applicationContext, appKey, appSecret, new CommonCallback() {
             @Override
             public void onSuccess(String response) {
-                Log.d(TAG, "init cloudchannel success");
+                Log.d(TAG, "init cloudchannel success" + pushService.getDeviceId());
+                RxBus.getDefault().post(pushService.getDeviceId(), "connectPushId");
             }
 
             @Override
