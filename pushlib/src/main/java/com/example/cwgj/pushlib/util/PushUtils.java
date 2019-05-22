@@ -86,7 +86,7 @@ public class PushUtils {
      */
     public static void initCloudChannel(final Context applicationContext, final boolean isInitThirdChannel, final String xiamoId, final String xiaomiKey) {
         PushServiceFactory.init(applicationContext);
-        CloudPushService pushService = PushServiceFactory.getCloudPushService();
+        final CloudPushService pushService = PushServiceFactory.getCloudPushService();
         //设置接受通知通道为： AliyunMessageIntentService(官方建议)
         pushService.setPushIntentService(MyMessageIntentService.class);
         //注册channel
@@ -94,6 +94,7 @@ public class PushUtils {
             @Override
             public void onSuccess(String response) {
                 Log.d(TAG, "init cloudchannel success");
+                RxBus.getDefault().post(pushService.getDeviceId(), "connectPushId");
                 if (isInitThirdChannel) {
                     initThirdCloudChannel(applicationContext, xiamoId, xiaomiKey);
                 }
