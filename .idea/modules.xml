@@ -6,9 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/TechAliPush.iml" filepath="$PROJECT_DIR$/TechAliPush.iml" />
       <module fileurl="file://D:/android_application/TechAliPush/alibabaPush.iml" filepath="D:/android_application/TechAliPush/alibabaPush.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:/android_application/TechAliPush/app/app.iml" filepath="D:/android_application/TechAliPush/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pushlib/pushlib.iml" filepath="$PROJECT_DIR$/pushlib/pushlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/pushlib/pushlib.iml" filepath="$PROJECT_DIR$/pushlib/pushlib.iml" />
       <module fileurl="file://D:/android_application/TechAliPush/pushlib/pushlib.iml" filepath="D:/android_application/TechAliPush/pushlib/pushlib.iml" />
     </modules>
