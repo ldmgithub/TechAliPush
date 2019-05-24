@@ -39,6 +39,8 @@ public class PushUtils {
     //rxbus 事件bus
 //    public static RxBus sRxBus;
 
+
+
     /**
      * 初始化云推送通道
      *

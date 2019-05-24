@@ -1,11 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.cwgj.pushlib">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.cwgj.pushlib">
 
 
     <application
          android:allowBackup="true"
          android:supportsRtl="true">
         <!-- 消息接收监听器 （用户可自主扩展） -->
+
+        <meta-data
+            android:name="com.alibaba.app.appkey"
+            android:value="@string/alipush_appkey"/> <!-- 请填写你自己的- appKey 24894978  测试 24880724-->
+
+        <meta-data
+            android:name="com.alibaba.app.appsecret"
+            android:value="@string/alipush_appsecret"/> <!-- 测试 6e55f5cd8697d53a223b90bd546f5b88，请填写你自己的appSecret d90998e08e03f761e17c642713e323ed-->
 
         <service
             android:name=".receiver.MyMessageIntentService"

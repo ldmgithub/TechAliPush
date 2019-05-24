@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">pushLib</string>
+    <!--阿里云推送appkey-->
+    <!--<string name="alipush_appkey">24894978</string>-->
+    <!--com.cwgj.park.oldfee-->
+    <string name="alipush_appkey">25337463</string>
+    <!--阿里云推送appsecret-->
+    <!--<string name="alipush_appsecret">d90998e08e03f761e17c642713e323ed</string>-->
+    <!--com.cwgj.park.oldfee-->
+    <string name="alipush_appsecret">bf96edb28704dc5f98959da0d7b7590e</string>
 </resources>

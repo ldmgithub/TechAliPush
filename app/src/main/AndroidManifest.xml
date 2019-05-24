@@ -20,10 +20,6 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.alibaba.app.appkey"
-            android:value="24880724"/> <!-- 请填写你自己的- appKey -->
-
         <activity android:name=".SecondActivity"/>
         <receiver
             android:name=".MyMessageReceiver"

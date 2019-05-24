@@ -28,7 +28,8 @@ public class MainAppliaction extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PushUtils.initCloudChannel(RxBus.getDefault(), this, "25337463", "bf96edb28704dc5f98959da0d7b7590e");
+//        PushUtils.initCloudChannel(RxBus.getDefault(), this, "25337463", "bf96edb28704dc5f98959da0d7b7590e");
+        PushUtils.initCloudChannel(this,false);
 //        initCloudChannel(this);
         PushUtils.initGcmCloudChannel(  this, "24829542", "1e8b48512cc143eca816f43eccb71715");
     }
