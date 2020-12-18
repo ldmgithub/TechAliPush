@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/TechAliPush.iml" filepath="$PROJECT_DIR$/.idea/TechAliPush.iml" group="TechAliPush" />
-      <module fileurl="file://D:/android_application/TechAliPush/alibabaPush.iml" filepath="D:/android_application/TechAliPush/alibabaPush.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TechAliPush/app" />
-      <module fileurl="file://$PROJECT_DIR$/pushlib/pushlib.iml" filepath="$PROJECT_DIR$/pushlib/pushlib.iml" group="TechAliPush/pushlib" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/LdmTechAliPush.iml" filepath="$PROJECT_DIR$/LdmTechAliPush.iml" group="LdmTechAliPush" />
-      <module fileurl="file://$PROJECT_DIR$/app/LdmTechAliPush-app.iml" filepath="$PROJECT_DIR$/app/LdmTechAliPush-app.iml" group="LdmTechAliPush/app" />
-      <module fileurl="file://$PROJECT_DIR$/pushlib/LdmTechAliPush-pushlib.iml" filepath="$PROJECT_DIR$/pushlib/LdmTechAliPush-pushlib.iml" group="LdmTechAliPush/pushlib" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/TechAliPush.iml" filepath="$PROJECT_DIR$/.idea/TechAliPush.iml" />
-      <module fileurl="file://D:/android_application/TechAliPush/alibabaPush.iml" filepath="D:/android_application/TechAliPush/alibabaPush.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:/android_application/TechAliPush/pushlib/pushlib.iml" filepath="D:/android_application/TechAliPush/pushlib/pushlib.iml" />
->>>>>>> 995719af5f519acb3966e04c213c2fa7f3ce4183
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="TechAliPush/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pushlib/pushlib.iml" filepath="$PROJECT_DIR$/.idea/modules/pushlib/pushlib.iml" group="TechAliPush/pushlib" />
     </modules>
   </component>
 </project>
