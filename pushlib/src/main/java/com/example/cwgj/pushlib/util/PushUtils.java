@@ -29,10 +29,14 @@ public class PushUtils {
     public static final String TAG_NOTIFICATION_REC = "notification_rec";
     //通知打开
     public static final String TAG_NOTIFICATION_OPENED = "notification_opened";
+
+    public static final String TAG_NOTIFICATION_NO_ACTION = "notification_no_action";
     //通知移除
     public static final String TAG_NOTIFICATION_REMOVED = "notification_removed";
     //接收消息
     public static final String TAG_MESSAGE_REC = "tag_message_rec";
+    
+    public static final String TAG_NOTIFICATION_RECEIVED_IN_APP = "notification_received_in_app";
     //rxbus 事件bus
 //    public static RxBus sRxBus;
 

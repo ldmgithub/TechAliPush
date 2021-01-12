@@ -24,19 +24,22 @@ import rxbus.ecaray.com.rxbuslib.rxbus.RxBus;
 public class MyMessageIntentService extends AliyunMessageIntentService {
 
     private static final String REC_TAG = "MyMessageIntentService";
+
     /**
      * 推送消息的回调方法
+     *
      * @param context
      * @param cPushMessage
      */
     @Override
     protected void onMessage(Context context, CPushMessage cPushMessage) {
-        Log.i(REC_TAG,"收到一条推送消息 ： " + cPushMessage.getTitle() + ", content:" + cPushMessage.getContent());
+        Log.i(REC_TAG, "收到一条推送消息 ： " + cPushMessage.getTitle() + ", content:" + cPushMessage.getContent());
         RxBus.getDefault().post(cPushMessage, PushUtils.TAG_MESSAGE_REC);
     }
 
     /**
      * 推送通知的回调方法
+     *
      * @param context
      * @param title
      * @param summary
@@ -45,13 +48,14 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
     @Override
     protected void onNotification(Context context, String title, String summary, Map<String, String> extraMap) {
         String msg = "收到一条推送通知 ： " + title + ", summary:" + summary;
-        Log.i(REC_TAG,msg);
-      RxBus.getDefault().post(new NotificationBean(title, summary, extraMap, ""), PushUtils.TAG_NOTIFICATION_REC);
+        Log.i(REC_TAG, msg);
+        RxBus.getDefault().post(new NotificationBean(title, summary, extraMap, ""), PushUtils.TAG_NOTIFICATION_REC);
     }
 
 
     /**
      * 从通知栏打开通知的扩展处理
+     *
      * @param context
      * @param title
      * @param summary
@@ -59,12 +63,13 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
      */
     @Override
     protected void onNotificationOpened(Context context, String title, String summary, String extraMap) {
-        Log.i(REC_TAG,"onNotificationOpened ： " + " : " + title + " : " + summary + " : " + extraMap);
+        Log.i(REC_TAG, "onNotificationOpened ： " + " : " + title + " : " + summary + " : " + extraMap);
         RxBus.getDefault().post(new NotificationBean(title, summary, null, extraMap), PushUtils.TAG_NOTIFICATION_OPENED);
     }
 
     /**
      * 无动作通知点击回调。当在后台或阿里云控制台指定的通知动作为无逻辑跳转时,通知点击回调为onNotificationClickedWithNoAction而不是onNotificationOpened
+     *
      * @param context
      * @param title
      * @param summary
@@ -72,11 +77,13 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
      */
     @Override
     protected void onNotificationClickedWithNoAction(Context context, String title, String summary, String extraMap) {
-        Log.i(REC_TAG,"onNotificationClickedWithNoAction ： " + " : " + title + " : " + summary + " : " + extraMap);
+        Log.i(REC_TAG, "onNotificationClickedWithNoAction ： " + " : " + title + " : " + summary + " : " + extraMap);
+        RxBus.getDefault().post(new NotificationBean(title, summary, null, extraMap), PushUtils.TAG_NOTIFICATION_NO_ACTION);
     }
 
     /**
      * 通知删除回调
+     *
      * @param context
      * @param messageId
      */
@@ -88,6 +95,7 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
 
     /**
      * 应用处于前台时通知到达回调。注意:该方法仅对自定义样式通知有效,相关详情请参考https://help.aliyun.com/document_detail/30066.html#h3-3-4-basiccustompushnotification-api
+     *
      * @param context
      * @param title
      * @param summary
@@ -98,6 +106,7 @@ public class MyMessageIntentService extends AliyunMessageIntentService {
      */
     @Override
     protected void onNotificationReceivedInApp(Context context, String title, String summary, Map<String, String> extraMap, int openType, String openActivity, String openUrl) {
-        Log.i(REC_TAG,"onNotificationReceivedInApp ： " + " : " + title + " : " + summary + "  " + extraMap + " : " + openType + " : " + openActivity + " : " + openUrl);
+        Log.i(REC_TAG, "onNotificationReceivedInApp ： " + " : " + title + " : " + summary + "  " + extraMap + " : " + openType + " : " + openActivity + " : " + openUrl);
+        RxBus.getDefault().post(new NotificationBean(title, summary, extraMap, ""), PushUtils.TAG_NOTIFICATION_RECEIVED_IN_APP);
     }
 }

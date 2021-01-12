@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TechAliPush.iml" filepath="$PROJECT_DIR$/.idea/TechAliPush.iml" group="TechAliPush" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="TechAliPush/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pushlib/pushlib.iml" filepath="$PROJECT_DIR$/.idea/modules/pushlib/pushlib.iml" group="TechAliPush/pushlib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TechAliPush.iml" filepath="$PROJECT_DIR$/.idea/TechAliPush.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TechAliPush.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TechAliPush.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pushlib/TechAliPush.pushlib.iml" filepath="$PROJECT_DIR$/.idea/modules/pushlib/TechAliPush.pushlib.iml" />
     </modules>
   </component>
 </project>
